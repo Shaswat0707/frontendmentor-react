@@ -89,19 +89,21 @@ const UrlInputBox = () => {
   return (
     <div className="url-shortener">
       <div className="container">
-        <div className="input-container">
-          <input
-            type="text"
-            value={input}
-            aria-label="URL Input"
-            aria-required="true"
-            onChange={handleChange}
-            data-error={error}
-            placeholder="Shorten a link here..."
-          />
-          <p className="error" data-error={error}>
-            Please add a link
-          </p>
+        <div className="form-container">
+          <div className="input-container">
+            <input
+              type="text"
+              value={input}
+              aria-label="URL Input"
+              aria-required="true"
+              onChange={handleChange}
+              data-error={error}
+              placeholder="Shorten a link here..."
+            />
+            <p className="error" data-error={error}>
+              Please add a link
+            </p>
+          </div>
           <button
             className="primary-button"
             onClick={handleShortening}
