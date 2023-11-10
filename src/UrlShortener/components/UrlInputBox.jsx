@@ -1,17 +1,6 @@
 import { useState, useReducer } from "react";
 
-const initialURLs = [
-  {
-    original: "https://cleanuri.com/docs",
-    shortened: "https://shorturl.at/yANPW",
-    clicked: false,
-  },
-  {
-    original: "https://cleanuriadsadasd.com/docs",
-    shortened: "https://shorturl.at/yANPWasas",
-    clicked: false,
-  },
-];
+const initialURLs = [];
 
 const ACTIONS = {
   ADDED: "added",
