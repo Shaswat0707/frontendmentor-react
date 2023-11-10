@@ -676,6 +676,6 @@ h5.footer__link-heading {
   }
 
   .data-container .primary-button {
-    padding-inline: var(--size-800);
+    width: 10rem;
   }
 }
