@@ -101,16 +101,24 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: -moz-available;
 }
 
-@media (min-width: 375px) {
+@media (min-width: 660px) {
   .advice-container {
     width: 40%;
     padding-inline: 2.5rem;
   }
   .advice-container > * {
     padding-bottom: 0rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .advice-container {
+    width: auto;
+    width: -moz-available;
+    width: -webkit-fill-available;
+    width: fill-available;
   }
 }
 
