@@ -6,6 +6,8 @@ const Home = () => {
       <br />
       <Link to="/url-shortener">URL Shortener</Link>
       <br />
+      <Link to="/countries">Countries</Link>
+      <br />
     </div>
   );
 };
