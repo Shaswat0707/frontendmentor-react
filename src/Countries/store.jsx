@@ -83,7 +83,7 @@ export const useCountryStore = create((set, get) => ({
   toggleTheme: (theme) => set({ theme: !theme }),
 }));
 
-fetch("/public/data.json")
+fetch("/data.json")
   .then((response) => response.json())
   .then((countries) => {
     useCountryStore.getState().setAllCountries(countries);
