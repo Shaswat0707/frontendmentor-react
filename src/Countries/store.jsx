@@ -28,6 +28,7 @@ export const getCountry = (cca3) =>
     .at(0);
 
 export const getBorderCountries = (borders) => {
+  if (borders === undefined) return [];
   const borderCountryMap = [];
   useCountryStore
     .getState()
