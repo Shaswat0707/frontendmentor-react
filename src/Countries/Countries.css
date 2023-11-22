@@ -20,7 +20,9 @@
   --size-900: 5rem;
 
   --clr-background: hsl(0, 0%, 98%);
-  --clr-white: hsl(0, 0%, 100%);
+  --clr-background-secondary: hsl(0, 0%, 100%);
+  --clr-text-input: hsl(0, 0%, 52%);
+  --clr-text: hsl(200, 15%, 8%);
 }
 
 *,
@@ -57,10 +59,22 @@ body {
 body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+}
+
+.countries-rest {
   font-family: var(--ff-primary);
   font-size: var(--fs-primary);
   font-weight: var(--fw-primary);
   background-color: var(--clr-background);
+  color: var(--clr-text);
+  min-height: 100vh;
+}
+
+.countries-rest[data-dark-theme="true"] {
+  --clr-background: hsl(207, 26%, 17%);
+  --clr-background-secondary: hsl(209, 23%, 22%);
+  --clr-text-input: hsl(0, 0%, 100%);
+  --clr-text: hsl(0, 0%, 100%);
 }
 
 /* A elements that don't have a class get default styles */
@@ -70,7 +84,7 @@ a:not([class]) {
 
 a {
   text-decoration: none;
-  color: inherit;
+  color: var(--clr-text);
 }
 
 /* Make images easier to work with */
@@ -146,6 +160,12 @@ h6 {
   container-type: inline-size;
 }
 
+@media (min-width: 50em) {
+  .country-container {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 0.3fr));
+  }
+}
+
 .country-tile-container {
   --inline-padding: var(--size-400);
   --gap: var(--size-100);
@@ -159,7 +179,7 @@ h6 {
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
   -webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
-  background-color: var(--clr-white);
+  background-color: var(--clr-background-secondary);
 }
 
 .country-tile-image {
@@ -194,7 +214,7 @@ h6 {
 }
 
 .navbar {
-  background-color: var(--clr-white);
+  background-color: var(--clr-background-secondary);
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
   -webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
@@ -210,6 +230,8 @@ h6 {
 .nav-title {
   font-size: var(--size-500);
   font-weight: var(--fw-heading);
+  color: var(--clr-text);
+  cursor: pointer;
 }
 
 .nav-mode {
@@ -217,11 +239,13 @@ h6 {
   align-items: center;
   gap: var(--size-200);
   cursor: pointer;
+  color: var(--clr-text);
 }
 
 .nav-mode .icon {
   height: 13px;
   width: 13px;
+  fill: var(--clr-text);
 }
 
 .nav-mode .mode-text {
@@ -241,7 +265,8 @@ h6 {
   padding: var(--size-400);
   background-position: 1.5rem;
   background-size: 1.5rem;
-  background-color: var(--clr-white);
+  background-color: var(--clr-background-secondary);
+  color: var(--clr-text-input);
   padding-left: 4.5rem;
   border: 0;
   border-radius: 0.25rem;
@@ -253,7 +278,8 @@ h6 {
 
 .filter-bar .dropdown {
   grid-area: dropdown;
-  background: var(--clr-white);
+  background: var(--clr-background-secondary);
+  color: var(--clr-text-input);
   padding: var(--size-400);
   border: 0;
   border-radius: 0.25rem;
@@ -318,4 +344,94 @@ h6 {
   ~ .country-tile-continents:empty
   + .country-tile-continents:not(:empty):before {
   content: ", ";
+}
+
+button.primary {
+  display: flex;
+  gap: var(--size-200);
+  background-color: var(--clr-background-secondary);
+  color: var(--clr-text);
+  padding: 0.5rem 1.5rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+.country-detail-container {
+  padding-block: var(--size-500);
+  display: grid;
+  gap: var(--size-700);
+}
+
+.country-detail-container .back-button {
+  width: fit-content;
+}
+
+.country-detail-container .back-button .icon {
+  fill: var(--clr-text);
+}
+
+.country-detail {
+  display: grid;
+  grid-template-areas:
+    "flag"
+    "detail-content";
+  gap: var(--size-700);
+}
+
+@media (min-width: 50em) {
+  .country-detail {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "flag detail-content";
+  }
+}
+
+.country-detail-flag {
+  grid-area: flag;
+}
+
+.country-detail-flag > img {
+  max-height: 23.75rem;
+}
+
+.country-detail-content {
+  grid-area: detail-content;
+  display: grid;
+  gap: var(--size-500);
+  height: fit-content;
+}
+
+.country-detail-name {
+  font-size: 1.2rem;
+  line-height: 1;
+  font-weight: var(--fw-heading);
+}
+
+.country-detail-tiles {
+  display: grid;
+  gap: var(--size-200);
+}
+
+.country-detail-tile {
+  font-weight: var(--fw-secondary);
+}
+
+.country-detail-tile span {
+  font-weight: var(--fw-primary);
+}
+
+.borderCountry-button {
+  font-weight: var(--fw-secondary);
+}
+
+.country-detail-tiles-title {
+  font-size: var(--size-400);
+}
+
+.country-detail-tiles-button-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-300);
 }
