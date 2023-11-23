@@ -2,14 +2,6 @@ import { create } from "zustand";
 import { LIGHT } from "./CONSTANTS";
 
 const searchCountries = (countries, continent, search) => {
-  // const tempCountries = countries.filter((country) =>
-  //   country.name.toLowerCase().includes(search.toLowerCase())
-  // );
-  // if (continent !== "")
-  //   return tempCountries.filter((country) =>
-  //     country.continents.includes(continent)
-  //   );
-  // return tempCountries;
   return countries
     .filter((country) =>
       country.region.toLowerCase().includes(continent.toLowerCase())
