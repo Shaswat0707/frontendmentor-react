@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import AdviceGenerator from "./AdviceGenerator/AdviceGenerator";
-import NotFound from "./NotFound";
 import Home from "./Home";
 import UrlShortener from "./UrlShortener/UrlShortener";
 import Countries from "./Countries/Countries";
 import CountryDetail from "./Countries/components/CountryDetail";
+import CreditCard from "./CreditCard/CreditCard";
 
 const App = () => {
   return (
@@ -15,6 +15,7 @@ const App = () => {
         <Route path="/url-shortener" element={<UrlShortener />} />
         <Route path="/countries" element={<Countries />} />
         <Route path="/countries/:id" element={<CountryDetail />} />
+        <Route path="/credit-card" element={<CreditCard />} />
       </Routes>
     </>
   );

@@ -1,0 +1,174 @@
+:root {
+  --fs-300: clamp(0.94rem, calc(0.92rem + 0.08vw), 0.98rem);
+  --fs-400: clamp(1.13rem, calc(1.06rem + 0.33vw), 1.31rem);
+  --fs-500: clamp(1.35rem, calc(1.21rem + 0.69vw), 1.75rem);
+  --fs-600: clamp(1.62rem, calc(1.37rem + 1.24vw), 2.33rem);
+  --fs-700: clamp(1.94rem, calc(1.54rem + 2.03vw), 3.11rem);
+  --fs-800: clamp(2.33rem, calc(1.7rem + 3.15vw), 4.14rem);
+  --fs-900: clamp(2.8rem, calc(1.85rem + 4.74vw), 5.52rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: var(--color-scheme);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: var(--fs-400);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure {
+  margin: 0;
+}
+
+img,
+picture,
+svg {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  font-style: italic;
+  background-repeat: no-repeat;
+  background-size: cover;
+  shape-margin: 1rem;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.flow > * + * {
+  margin-top: var(--flow-spacing, 1em);
+}
+
+.even-columns {
+  display: flex;
+  gap: 1rem;
+}
+
+.content-grid {
+  --padding-inline: 1rem;
+  --content-max-width: 900px;
+  --breakout-max-width: 1200px;
+
+  --breakout-size: calc(
+    (var(--breakout-max-width) - var(--content-max-width)) / 2
+  );
+
+  display: grid;
+  grid-template-columns:
+    [full-width-start] minmax(var(--padding-inline), 1fr)
+    [breakout-start] minmax(0, var(--breakout-size))
+    [content-start] min(
+      100% - (var(--padding-inline) * 2),
+      var(--content-max-width)
+    )
+    [content-end]
+    minmax(0, var(--breakout-size)) [breakout-end]
+    minmax(var(--padding-inline), 1fr) [full-width-end];
+}
+
+.content-grid > :not(.breakout, .full-width),
+.full-width > :not(.breakout, .full-width) {
+  grid-column: content;
+}
+
+.content-grid > .breakout {
+  grid-column: breakout;
+}
+
+.content-grid > .full-width {
+  grid-column: full-width;
+
+  display: grid;
+  grid-template-columns: inherit;
+}
+
+.credit-card {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Space Grotesk", sans-serif;
+  --linear-gradient: linear-gradient(
+    to bottom,
+    #6448fe,
+    #6939e2,
+    #6929c7,
+    #6619ad,
+    #600594
+  );
+  --clr-primary-red: hsl(0, 100%, 66%);
+  --clr-neutral-white: hsl(0, 0%, 100%);
+  --clr-neutral-light-violet: hsl(270, 3%, 87%);
+  --clr-neutral-dark-grayish-violet: hsl(279, 6%, 55%);
+  --clr-neutral-dark-violet: hsl(278, 68%, 11%);
+}
+
+.credit-card__navbar {
+  --background-image: url(assets/bg-main-mobile.png);
+  background-image: var(--background-image);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--clr-neutral-white);
+}
+
+.credit-card__navbar > .container {
+  display: grid;
+  gap: 3rem;
+}
+
+.credit-card__image {
+  background-image: var(--credit-card-image);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  padding-inline: 2.7rem;
+}
+
+.credit-card__image-back {
+  --credit-card-image: url(assets/bg-card-back.png);
+  padding-block: 5.3rem;
+  justify-items: end;
+  font-size: 14px;
+}
+
+.credit-card__image-front {
+  --credit-card-image: url(assets/bg-card-front.png);
+  padding: 1rem;
+}
+
+.credit-card__image-font--bottom {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  text-transform: uppercase;
+  margin-top: 3rem;
+  font-size: 12px;
+}
+
+.credit-card__image-front--number {
+  padding-top: 4rem;
+}
