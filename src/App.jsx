@@ -5,6 +5,7 @@ import UrlShortener from "./UrlShortener/UrlShortener";
 import Countries from "./Countries/Countries";
 import CountryDetail from "./Countries/components/CountryDetail";
 import CreditCard from "./CreditCard/CreditCard";
+import Todos from "./Todo/Todos";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/countries" element={<Countries />} />
         <Route path="/countries/:id" element={<CountryDetail />} />
         <Route path="/credit-card" element={<CreditCard />} />
+        <Route path="/todos" element={<Todos />} />
       </Routes>
     </>
   );

@@ -9,12 +9,12 @@
   --clr-neutral-dark-blue: hsl(255, 11%, 22%);
   --clr-neutral-dark-violet: hsl(260, 8%, 14%);
 
-  --fs-body: 18px;
+  --fs-url-body: 18px;
 
-  --fw-primary: 500;
-  --fw-secondary: 700;
+  --fw-url-primary: 500;
+  --fw-url-secondary: 700;
 
-  --ff-primary: "Poppins", sans-serif;
+  --ff-url-primary: "Poppins", sans-serif;
 
   --size-100: 0.25rem;
   --size-200: 0.5rem;
@@ -62,7 +62,7 @@ body {
 body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  font-family: var(--ff-primary);
+  font-family: var(--ff-url-primary);
 }
 
 /* A elements that don't have a class get default styles */
@@ -131,7 +131,7 @@ svg {
   border-radius: var(--size-900);
   padding: var(--size-300);
   cursor: pointer;
-  font-weight: var(--fw-secondary);
+  font-weight: var(--fw-url-secondary);
 }
 
 .primary-button[data-button="secondary"] {
@@ -149,7 +149,7 @@ h4,
 h5,
 h6 {
   color: var(--clr-neutral-dark-violet);
-  font-weight: var(--fw-secondary);
+  font-weight: var(--fw-url-secondary);
 }
 
 p {
@@ -188,12 +188,12 @@ p {
 .nav-list a {
   color: var(--clr-neutral-gray);
   text-decoration: none;
-  font-weight: var(--fw-secondary);
+  font-weight: var(--fw-url-secondary);
 }
 
 .nav-list .primary-button {
   padding: var(--size-200) var(--size-600);
-  font-weight: var(--fw-secondary);
+  font-weight: var(--fw-url-secondary);
 }
 
 @media (max-width: 50em) {
@@ -208,7 +208,7 @@ p {
     background: var(--clr-primary-dark-violet);
     border-radius: var(--size-200);
     box-shadow: 0 0 0.75em rgb(0, 0, 0, 0.05);
-    font-weight: var(--fw-secondary);
+    font-weight: var(--fw-url-secondary);
     width: min(
       var(--primary-navigation-max-width),
       100% - var(--nav-padding) * 2
@@ -296,7 +296,7 @@ p {
 .hero__heading {
   font-size: 2.5rem;
   line-height: 1.2;
-  font-weight: var(--fw-secondary);
+  font-weight: var(--fw-url-secondary);
   grid-area: heading;
 }
 

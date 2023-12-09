@@ -1,0 +1,153 @@
+:root {
+  --ff-todo-primary: "Josefin Sans", sans-serif;
+  --fs-todo-primary: 18px;
+
+  --fw-todo-primary: 400;
+  --fw-todo-secondary: 700;
+
+  --todo-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+.todo-container {
+  font-family: var(--ff-todo-primary);
+  font-size: var(--fs-todo-primary);
+  font-weight: var(--fw-todo-primary);
+  display: grid;
+  grid-template-rows: 2fr 8fr;
+  min-height: 100vh;
+}
+
+.navbar-container {
+  background: url(./assets/bg-mobile-light.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  padding-top: 3rem;
+}
+
+.navbar-container > .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar-container .logo {
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  font-size: 2rem;
+}
+
+.navbar-container .theme-icon {
+  cursor: pointer;
+}
+
+.todo-wrapper {
+  background-color: hsl(0, 0%, 98%);
+}
+
+.todo-input-wrapper {
+  position: relative;
+  box-shadow: var(--todo-box-shadow);
+}
+
+.todo-input-wrapper .todo-input {
+  outline: none;
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 14px;
+  padding-left: 2.3rem;
+  border: 0px;
+  border-radius: 0.5rem;
+}
+
+.todo-input-wrapper .circle {
+  position: absolute;
+  top: 14px;
+  left: 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid hsl(0 0% 90%);
+  width: 1rem;
+  aspect-ratio: 1;
+}
+
+.todo-list-container {
+  background: white;
+  box-shadow: var(--todo-box-shadow);
+  margin-top: 2rem;
+}
+
+.todo-list-container .todo-last-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  padding: 0.75rem 1rem;
+}
+
+.todo-list-container .todo-last-item .todo-list-status {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.4rem;
+}
+
+.single-todo-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  font-size: 14px;
+  opacity: 1;
+  border-bottom: 1px solid hsl(0, 0%, 90%);
+}
+
+.single-todo-wrapper.dragging {
+  opacity: 0.5;
+}
+
+.todo-status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid hsl(0 0% 90%);
+  height: 1rem;
+  aspect-ratio: 1;
+}
+
+.single-todo-wrapper[data-todo-status="true"] .todo-status,
+.circle[data-todo-status="true"] {
+  background: linear-gradient(to bottom, #57ddff, #c058f3);
+}
+
+.single-todo-wrapper[data-todo-status="true"] .todo-status-inner,
+.circle[data-todo-status="true"] .circle-inner {
+  background-image: url(assets/icon-check.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 0.5rem;
+  aspect-ratio: 1;
+}
+
+.todo-text {
+  margin-left: 0.6rem;
+}
+
+.single-todo-wrapper[data-todo-status="true"] .todo-text {
+  text-decoration: line-through;
+  color: hsl(0 0% 80%);
+}
+
+.todo-close {
+  background-image: url(assets/icon-cross.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: auto;
+  height: 0.75rem;
+  opacity: 0;
+  aspect-ratio: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.single-todo-wrapper:hover .todo-close {
+  opacity: 1;
+}

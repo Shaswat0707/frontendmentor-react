@@ -70,7 +70,7 @@ body {
   min-height: 100vh;
 }
 
-.countries-rest[data-dark-theme="true"] {
+.countries-rest[data-dark-theme="false"] {
   --clr-background: hsl(207, 26%, 17%);
   --clr-background-secondary: hsl(209, 23%, 22%);
   --clr-text-input: hsl(0, 0%, 100%);

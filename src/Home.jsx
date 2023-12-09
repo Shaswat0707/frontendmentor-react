@@ -8,6 +8,8 @@ const Home = () => {
       <br />
       <Link to="/countries">Countries</Link>
       <br />
+      <Link to="/todos">Todos</Link>
+      <br />
     </div>
   );
 };
