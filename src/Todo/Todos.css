@@ -96,7 +96,7 @@
 .todo-parent {
   position: absolute;
   width: 100%;
-  top: calc(clamp(6rem, 10vw, 23rem) * -1);
+  top: calc(clamp(6rem, 9vw, 20rem) * -1);
 }
 
 .todo-input-wrapper {
