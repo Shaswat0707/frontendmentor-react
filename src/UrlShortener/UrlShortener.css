@@ -62,7 +62,6 @@ body {
 body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  font-family: var(--ff-url-primary);
 }
 
 /* A elements that don't have a class get default styles */
@@ -158,6 +157,7 @@ p {
 
 .primary-header {
   margin-top: var(--size-700);
+  font-family: var(--ff-url-primary);
 }
 
 .mobile-nav-toggle {
@@ -275,6 +275,7 @@ p {
   text-align: center;
   gap: var(--size-300);
   padding-block: var(--size-300);
+  font-family: var(--ff-url-primary);
   margin-bottom: 8rem;
   grid-template:
     "image"
@@ -334,6 +335,7 @@ p {
 
 .statistics {
   background-color: hsl(0 0% 75% / 0.4);
+  font-family: var(--ff-url-primary);
 }
 
 .statistics > .container {
@@ -466,6 +468,7 @@ p {
 .boostYourLink {
   --background-image: url(assets/bg-boost-mobile.svg);
   background-image: var(--background-image);
+  font-family: var(--ff-url-primary);
   background-color: var(--clr-primary-dark-violet);
   background-repeat: no-repeat;
   display: grid;
@@ -500,6 +503,7 @@ footer > .container {
   text-align: center;
   gap: var(--size-500);
   padding-block: var(--size-800);
+  font-family: var(--ff-url-primary);
   grid-template-areas:
     "logo"
     "wrapper";
@@ -571,6 +575,7 @@ h5.footer__link-heading {
 
 .url-shortener {
   background-color: hsl(0 0% 75% / 0.4);
+  font-family: var(--ff-url-primary);
 }
 
 .url-shortener .container {
