@@ -1,10 +1,9 @@
 /* eslint-disable react/prop-types */
-import { useTodoStore } from "../store";
+import { changeStatus, clearSelected } from "../store";
 import { useState } from "react";
 
 const Todo = ({ todo }) => {
   const [isDragging, setIsDragging] = useState(false);
-  const changeStatus = useTodoStore((state) => state.changeStatus);
   return (
     <div
       className={
@@ -22,7 +21,7 @@ const Todo = ({ todo }) => {
         <div className="todo-status-inner"></div>
       </div>
       <div className="todo-text">{todo.text}</div>
-      <div className="todo-close"></div>
+      <div className="todo-close" onClick={() => clearSelected(todo.id)}></div>
     </div>
   );
 };

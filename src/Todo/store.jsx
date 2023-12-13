@@ -39,11 +39,20 @@ export const setFilter = (filter) => {
   }));
 };
 
-const changeStatus = (id, status) =>
-  useTodoStore.getState().allTodos.map((todo) => {
-    if (todo.id === id) return { ...todo, status: !status };
+export const changeStatus = (id, status) => {
+  const filter = useTodoStore.getState().filter;
+  const newAllTodos = useTodoStore.getState().allTodos.map((todo) => {
+    if (todo.id === id) todo.status = !status;
     return todo;
   });
+  let newTodos;
+  if (filter === "") newTodos = newAllTodos;
+  else newTodos = newAllTodos.filter((todo) => todo.status === filter);
+  useTodoStore.setState(() => ({
+    todos: [...newTodos],
+    allTodos: [...newAllTodos],
+  }));
+};
 
 export const clearCompleted = () => {
   const newAllTodos = useTodoStore
@@ -53,6 +62,20 @@ export const clearCompleted = () => {
     todos: [...newAllTodos],
     allTodos: [...newAllTodos],
     filter: "",
+  }));
+};
+
+export const clearSelected = (id) => {
+  const newAllTodos = useTodoStore
+    .getState()
+    .allTodos.filter((todo) => todo.id !== id);
+  const newTodos = useTodoStore
+    .getState()
+    .todos.filter((todo) => todo.id !== id);
+
+  useTodoStore.setState(() => ({
+    todos: [...newTodos],
+    allTodos: [...newAllTodos],
   }));
 };
 
@@ -66,8 +89,4 @@ export const useTodoStore = create((set, get) => ({
   setNewTodo: (todo) => set({ newTodo: todo }),
   setTheme: () => set({ theme: !get().theme }),
   setNewFilter: () => set({ newFilter: !get().newFilter }),
-  changeStatus: (id, status) =>
-    set({
-      allTodos: changeStatus(id, status),
-    }),
 }));

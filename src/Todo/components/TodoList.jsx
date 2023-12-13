@@ -29,6 +29,7 @@ function getDragAfterElement(container, y) {
 
 const TodoList = () => {
   const todos = useTodoStore((state) => state.todos);
+  const filter = useTodoStore((state) => state.filter);
 
   const selectAll = () => {
     setFilter("");
@@ -66,13 +67,34 @@ const TodoList = () => {
             {getActiveTodosCount()} items left
           </div>
           <div className="todo-list-status">
-            <div className="todo-list-status-item" onClick={selectAll}>
+            <div
+              className={
+                filter === ""
+                  ? "todo-list-status-item active"
+                  : "todo-list-status-item"
+              }
+              onClick={selectAll}
+            >
               All
             </div>
-            <div className="todo-list-status-item" onClick={selectActive}>
+            <div
+              className={
+                filter === ACTIVE
+                  ? "todo-list-status-item active"
+                  : "todo-list-status-item"
+              }
+              onClick={selectActive}
+            >
               Active
             </div>
-            <div className="todo-list-status-item" onClick={selectCompleted}>
+            <div
+              className={
+                filter === COMPLETED
+                  ? "todo-list-status-item active"
+                  : "todo-list-status-item"
+              }
+              onClick={selectCompleted}
+            >
               Completed
             </div>
           </div>
